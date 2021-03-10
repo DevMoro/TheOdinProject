@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        //Make a computer pay function
+
+        function computerPlay() {
+
+            let selector = Math.ceil(Math.random() * 3);
+
+            switch(selector) {
+                case 1: 
+                console.log("Rock")
+                return "rock";
+                break;
+                case 2:
+                console.log("Paper")
+                return "paper"
+                break;
+                case 3:
+                console.log("Scissors")
+                return "scissors"
+                break;
+            }
+        }
+
+        //Create a function that takes User input.
+        // Must convert it to lowercase for comparison.
+
+        function userPlay() {
+            
+            let selector = prompt("Please enter rock, paper or scissors")
+            selector = selector.toLowerCase();
+            return selector;
+        }
+
+        //game function must take results and calculate the winner!
+
+        function playRound() {
+
+            let computer = computerPlay();
+            let user = userPlay()
+
+            if (user == computer) {
+                console.log("Draw!")
+                return;
+            }
+
+            if (user == "rock" && computer == "scissors") {
+                console.log ("You win!")
+                return 1
+                
+            } else {
+                console.log ("You lose!")
+                return 2
+                
+            }
+
+            if (user == "paper" && computer == "rock") {
+                console.log("You win!")
+                return 1
+                
+            } else {
+                console.log("You lose!")
+                return 2
+                
+            }
+        }
+
+        function game() {
+            let userScore = 0;
+            let computerScore = 0;
+
+            for (let i = 0; i < 5; i++){
+                let round = playRound();
+                if (round == 1) {
+                    userScore++
+                } else if(round == 2) {
+                    computerScore++
+                }
+            }
+
+            if (userScore > computerScore) {
+                console.log(`You:${userScore}, Computer:${computerScore}`)
+                console.log("You win! Game Over!")
+            } else if(userScore == computerScore) {
+                console.log ("Draw! Game Over!")
+            } else {
+                console.log(`You:${userScore}, Computer:${computerScore}`)
+                console.log("You lose! Game Over!")
+            }
+        }
+    </script>
+<head>
+
+</head>
+<body>
+
+</body>
+</html>
